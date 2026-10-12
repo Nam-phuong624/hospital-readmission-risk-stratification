@@ -1,0 +1,7 @@
+Model,ROC_AUC,PR_AUC,Recall_at_Top_20pct,Precision_at_Top_20pct,Lift_at_Top_20pct,Brier_Score
+Logistic Regression (Baseline),0.6613,0.2158,0.38,0.2126,1.9,0.0954
+LogReg (New Features),0.6623,0.2171,0.3809,0.2131,1.9,0.0954
+XGBoost (Challenger),0.667,0.2312,0.389,0.2176,1.94,0.0944
+XGBoost (New Features),0.6668,0.2302,0.3845,0.2151,1.92,0.0944
+XGBoost (scale_pos_weight),0.6659,0.2271,0.3827,0.2141,1.91,0.2215
+XGBoost (Calibrated Isotonic),0.669,0.231,0.3867,0.2159,1.93,0.0945

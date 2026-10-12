@@ -1,0 +1,7 @@
+Metric,Value
+Total raw encounters,"101,766"
+Excluded deceased/hospice,"2,423"
+Clean encounters analyzed,"99,343"
+Unique patients,"69,990"
+Readmitted within 30 days (Target=1),"11,314"
+30-day Readmission Rate (%),11.39%

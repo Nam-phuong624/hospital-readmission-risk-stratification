@@ -1,0 +1,17 @@
+# Specific files requested
+vinmec.py
+download_data.py
+AGENTS.md
+
+# Python cache & environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*

@@ -1,0 +1,14 @@
+Experiment_Type,Feature_Group,Num_Columns,Test_ROC_AUC,Test_Recall_Top20,AUC_Change_vs_Full
+Baseline (All Features),All Features,113,0.667,0.389,0.0
+Single Group Only,demographics,16,0.5144,0.2486,-0.1526
+Single Group Only,prior_utilization,3,0.6058,0.4702,-0.0612
+Single Group Only,diagnoses,9,0.5492,0.3903,-0.1179
+Single Group Only,medications,23,0.5528,0.2884,-0.1142
+Single Group Only,labs,6,0.5083,0.8213,-0.1588
+Single Group Only,admission_los,56,0.6086,0.3263,-0.0584
+Leave-One-Group-Out,Without demographics,97,0.6682,0.389,0.0012
+Leave-One-Group-Out,Without prior_utilization,110,0.628,0.3208,-0.0391
+Leave-One-Group-Out,Without diagnoses,104,0.6651,0.384,-0.002
+Leave-One-Group-Out,Without medications,90,0.6655,0.3872,-0.0016
+Leave-One-Group-Out,Without labs,107,0.6671,0.3845,0.0001
+Leave-One-Group-Out,Without admission_los,57,0.631,0.338,-0.036
