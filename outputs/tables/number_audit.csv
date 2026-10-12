@@ -1,0 +1,303 @@
+file,line,metric,value_in_doc,source_file_or_query,recomputed_value,status
+docs/00_problem_framing.md,4,Cửa sổ theo dõi biến mục tiêu (30-day unplanned readmission),30 ngày,Định nghĩa biến mục tiêu lâm sàng,readmitted < 30,DESIGN_OK
+docs/00_problem_framing.md,9,Ngưỡng phân tầng can thiệp ưu tiên (Top 20%),Top 20%,Quy ước giới hạn nguồn lực vận hành,Top 20% điểm rủi ro,DESIGN_OK
+docs/00_problem_framing.md,9,Khung thời gian liên hệ can thiệp sau xuất viện,48h,Thiết kế gói can thiệp chuyển tiếp,48 giờ sau xuất viện,DESIGN_OK
+docs/00_problem_framing.md,9,Cửa sổ tái nhập viện mục tiêu,30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+docs/00_problem_framing.md,25,Tỷ lệ bệnh nhân xuất viện tối đa theo dõi chuyên sâu,Top 20%,Ngân sách vận hành điều dưỡng,20%,DESIGN_OK
+docs/00_problem_framing.md,33,Tỷ lệ tái nhập viện 30 ngày nền ước lượng ban đầu,~11-12%,Giả định sơ bộ bài toán (thực tế data sạch: 11.39%),11.39% (outputs/tables/eda_summary_overall.csv),DESIGN_OK
+docs/00_problem_framing.md,33,Mục tiêu giảm tương đối tỷ lệ tái nhập 30 ngày,15-20%,Mục tiêu nghiệp vụ can thiệp (KPI 1),15-20%,DESIGN_OK
+docs/00_problem_framing.md,34,Ngưỡng cắt phân tầng nhóm rủi ro cao (Recall @ Top 20%),Top 20%,Định nghĩa KPI 2 (Operational),Top 20%,DESIGN_OK
+docs/00_problem_framing.md,34,Mục tiêu High-Risk Capture Rate (Recall @ Top 20%),>= 40-50%,Mục tiêu hiệu năng mô hình kỳ vọng,>= 40-50%,DESIGN_OK
+docs/00_problem_framing.md,34,Tỷ lệ nguồn lực tập trung cho nhóm nặng nhất,20%,Ràng buộc vận hành,20%,DESIGN_OK
+docs/00_problem_framing.md,35,Cửa sổ thời gian liên lạc sau xuất viện,48h,Thiết kế quy trình can thiệp (KPI 3),48h,DESIGN_OK
+docs/00_problem_framing.md,35,Mục tiêu tỷ lệ hoàn thành cuộc gọi 48h & tái khám đúng hẹn,>= 85%,Mục tiêu tuân thủ quy trình can thiệp,>= 85%,DESIGN_OK
+docs/10_root_cause_findings.md,4,Tổng số lượt điều trị nội trú sạch sau lọc,"99,343",outputs/tables/eda_summary_overall.csv,"99,343",VERIFIED
+docs/10_root_cause_findings.md,4,Ngưỡng ý nghĩa thống kê chọn driver độc lập,p < 0.05,Tiêu chuẩn kiểm định thống kê,p < 0.05,DESIGN_OK
+docs/10_root_cause_findings.md,6,Số lượng yếu tố nguy cơ độc lập đã xác nhận (p < 0.05),4,outputs/tables/root_cause_multivariate.csv,4,VERIFIED
+docs/10_root_cause_findings.md,7,Tỷ số chênh nhập viện năm trước (num_inpatient OR),1.305,outputs/tables/root_cause_multivariate.csv,1.305,VERIFIED
+docs/10_root_cause_findings.md,7,Khoảng tin cậy 95% của num_inpatient OR,[1.249 - 1.362],outputs/tables/root_cause_multivariate.csv,[1.249 - 1.362],VERIFIED
+docs/10_root_cause_findings.md,7,P-value của num_inpatient,< 0.0001,outputs/tables/root_cause_multivariate.csv,0.0000 (< 0.0001),VERIFIED
+docs/10_root_cause_findings.md,8,Mức tăng rủi ro per diagnosis (number_diagnoses),5.2%,outputs/tables/root_cause_multivariate.csv ((1.051864-1)*100),5.19% (~5.2%),VERIFIED
+docs/10_root_cause_findings.md,8,Odds Ratio của number_diagnoses,1.052,outputs/tables/root_cause_multivariate.csv,1.052,VERIFIED
+docs/10_root_cause_findings.md,8,Khoảng tin cậy 95% của number_diagnoses,[1.022 - 1.082],outputs/tables/root_cause_multivariate.csv,[1.022 - 1.082],VERIFIED
+docs/10_root_cause_findings.md,8,P-value của number_diagnoses,0.0005,outputs/tables/root_cause_multivariate.csv,0.00051 (~0.0005),VERIFIED
+docs/10_root_cause_findings.md,9,Ngưỡng tuổi bệnh nhân cao tuổi (is_elderly_70plus),>= 70,Quy ước phân nhóm lâm sàng / prep feature,>= 70,DESIGN_OK
+docs/10_root_cause_findings.md,9,Mức tăng nguy cơ tái nhập nhóm cao tuổi >= 70,17.2%,outputs/tables/root_cause_multivariate.csv ((1.172118-1)*100),17.21% (~17.2%),VERIFIED
+docs/10_root_cause_findings.md,9,Odds Ratio của is_elderly_70plus,1.172,outputs/tables/root_cause_multivariate.csv,1.172,VERIFIED
+docs/10_root_cause_findings.md,9,Khoảng tin cậy 95% của is_elderly_70plus,[1.022 - 1.344],outputs/tables/root_cause_multivariate.csv,[1.022 - 1.344],VERIFIED
+docs/10_root_cause_findings.md,9,P-value của is_elderly_70plus,0.0233,outputs/tables/root_cause_multivariate.csv,0.023285 (~0.0233),VERIFIED
+docs/10_root_cause_findings.md,10,Mức tăng nguy cơ per day nằm viện (time_in_hospital),2.5%,outputs/tables/root_cause_multivariate.csv ((1.024885-1)*100),2.49% (~2.5%),VERIFIED
+docs/10_root_cause_findings.md,10,Odds Ratio của time_in_hospital,1.025,outputs/tables/root_cause_multivariate.csv,1.025,VERIFIED
+docs/10_root_cause_findings.md,10,Khoảng tin cậy 95% của time_in_hospital,[1.000 - 1.050],outputs/tables/root_cause_multivariate.csv,[1.000 - 1.050],VERIFIED
+docs/10_root_cause_findings.md,10,P-value của time_in_hospital,0.0480,outputs/tables/root_cause_multivariate.csv,0.048044 (~0.0480),VERIFIED
+docs/10_root_cause_findings.md,13,Tỷ lệ tái nhập đơn biến nhóm giảm liều insulin (insulin_down),14.22%,outputs/tables/root_cause_medications.csv,14.22%,VERIFIED
+docs/10_root_cause_findings.md,13,Tỷ lệ tái nhập đơn biến nhóm tăng liều insulin (insulin_up),13.33%,outputs/tables/root_cause_medications.csv,13.33%,VERIFIED
+docs/10_root_cause_findings.md,13,Tỷ lệ tái nhập đơn biến nhóm không dùng insulin,10.21%,outputs/tables/root_cause_medications.csv,10.21%,VERIFIED
+docs/10_root_cause_findings.md,13,P-value đa biến của insulin_down,0.0677,outputs/tables/root_cause_multivariate.csv,0.067676 (~0.0677),VERIFIED
+docs/10_root_cause_findings.md,13,P-value đa biến của insulin_up,0.2507,outputs/tables/root_cause_multivariate.csv,0.250721 (~0.2507),VERIFIED
+docs/10_root_cause_findings.md,15,Tỷ lệ đợt điều trị không có xét nghiệm HbA1c,83.05%,"outputs/tables/root_cause_multivariate.csv / diabetic_data.csv (82,507/99,343)",83.05%,VERIFIED
+docs/10_root_cause_findings.md,16,P-value đa biến của no_a1c_test,0.1076,outputs/tables/root_cause_multivariate.csv,0.107612 (~0.1076),VERIFIED
+docs/10_root_cause_findings.md,16,Odds Ratio của no_a1c_test,1.146,outputs/tables/root_cause_multivariate.csv,1.146,VERIFIED
+docs/10_root_cause_findings.md,16,Khoảng tin cậy 95% của no_a1c_test,[0.971 - 1.352],outputs/tables/root_cause_multivariate.csv,[0.971 - 1.352],VERIFIED
+docs/10_root_cause_findings.md,24,"Table Multivariate num_inpatient: OR, 95% CI, p-value","1.305, [1.249 - 1.362], < 0.0001, tăng 30.5%",outputs/tables/root_cause_multivariate.csv,"1.305, [1.249 - 1.362], 0.0000, 30.47%",VERIFIED
+docs/10_root_cause_findings.md,25,"Table Multivariate number_diagnoses: OR, 95% CI, p-value","1.052, [1.022 - 1.082], 0.0005",outputs/tables/root_cause_multivariate.csv,"1.052, [1.022 - 1.082], 0.00051",VERIFIED
+docs/10_root_cause_findings.md,26,"Table Multivariate is_elderly_70plus: OR, 95% CI, p-value","1.172, [1.022 - 1.344], 0.0233",outputs/tables/root_cause_multivariate.csv,"1.172, [1.022 - 1.344], 0.0233",VERIFIED
+docs/10_root_cause_findings.md,27,"Table Multivariate time_in_hospital: OR, 95% CI, p-value","1.025, [1.000 - 1.050], 0.0480",outputs/tables/root_cause_multivariate.csv,"1.025, [1.000 - 1.050], 0.0480",VERIFIED
+docs/10_root_cause_findings.md,28,"Table Multivariate insulin_down: OR, 95% CI, p-value, đơn biến","1.272, [0.983 - 1.646], 0.0677, 14.22%",outputs/tables/root_cause_multivariate.csv & root_cause_medications.csv,"1.272, [0.983 - 1.646], 0.0677, 14.22%",VERIFIED
+docs/10_root_cause_findings.md,29,"Table Multivariate no_a1c_test: OR, 95% CI, p-value, missing rate","1.146, [0.971 - 1.352], 0.1076, 83.1%",outputs/tables/root_cause_multivariate.csv,"1.146, [0.971 - 1.352], 0.1076, 83.05%",VERIFIED
+docs/10_root_cause_findings.md,30,"Table Multivariate insulin_up: OR, 95% CI, p-value","1.169, [0.895 - 1.527], 0.2507",outputs/tables/root_cause_multivariate.csv,"1.169, [0.895 - 1.527], 0.2507",VERIFIED
+docs/10_root_cause_findings.md,31,"Table Multivariate diag_diabetes: OR, 95% CI, p-value","1.108, [0.875 - 1.404], 0.3951",outputs/tables/root_cause_multivariate.csv,"1.108, [0.875 - 1.404], 0.3951",VERIFIED
+docs/10_root_cause_findings.md,32,"Table Multivariate diag_circulatory: OR, 95% CI, p-value","1.082, [0.926 - 1.264], 0.3206",outputs/tables/root_cause_multivariate.csv,"1.082, [0.926 - 1.264], 0.3206",VERIFIED
+docs/10_root_cause_findings.md,33,"Table Multivariate num_emergency: OR, 95% CI, p-value","1.032, [0.964 - 1.105], 0.3595",outputs/tables/root_cause_multivariate.csv,"1.032, [0.964 - 1.105], 0.3595",VERIFIED
+docs/10_root_cause_findings.md,39,Tỷ số chênh num_inpatient (tiêu đề section 3.1),"OR = 1.305, p < 0.0001",outputs/tables/root_cause_multivariate.csv,"1.305, < 0.0001",VERIFIED
+docs/10_root_cause_findings.md,40,"Tỷ lệ tái nhập theo phân nhóm số lần nhập viện trước (0, 1, 2-3, >=4)","8.59%, 13.25%, 18.89%, 31.36%",outputs/tables/eda_readmission_by_prior_utilization.csv,"8.59%, 13.25%, 18.89%, 31.36%",VERIFIED
+docs/10_root_cause_findings.md,43,Tỷ số chênh number_diagnoses (tiêu đề section 3.2),"OR = 1.052, p = 0.0005",outputs/tables/root_cause_multivariate.csv,"1.052, 0.0005",VERIFIED
+docs/10_root_cause_findings.md,44,Mức tăng tỷ lệ chênh per diagnosis (text 3.2),5.2%,outputs/tables/root_cause_multivariate.csv,5.19%,VERIFIED
+docs/10_root_cause_findings.md,47,Tỷ số chênh is_elderly_70plus (tiêu đề section 3.3),"OR = 1.172, p = 0.0233",outputs/tables/root_cause_multivariate.csv,"1.172, 0.0233",VERIFIED
+docs/10_root_cause_findings.md,48,Mức tăng nguy cơ tái nhập nhóm cao tuổi >= 70 (text 3.3),17.2%,outputs/tables/root_cause_multivariate.csv,17.21%,VERIFIED
+docs/10_root_cause_findings.md,51,Tỷ số chênh time_in_hospital (tiêu đề section 3.4),"OR = 1.025, p = 0.0480",outputs/tables/root_cause_multivariate.csv,"1.025, 0.0480",VERIFIED
+docs/10_root_cause_findings.md,52,Mức tăng nguy cơ per day nằm viện (text 3.4),2.5%,outputs/tables/root_cause_multivariate.csv,2.49%,VERIFIED
+docs/10_root_cause_findings.md,60,Tỷ lệ thiếu xét nghiệm HbA1c quan sát được (text 4.1),83.05%,outputs/tables/root_cause_multivariate.csv / diabetic_data.csv,83.05%,VERIFIED
+docs/10_root_cause_findings.md,61,P-value biến no_a1c_test trong đa biến (text 4.1),p = 0.1076,outputs/tables/root_cause_multivariate.csv,0.1076,VERIFIED
+docs/10_root_cause_findings.md,64,Tỷ lệ tái nhập đơn biến và p-value đa biến của insulin_down (text 4.2),"14.22%, p = 0.0677",outputs/tables/root_cause_medications.csv & root_cause_multivariate.csv,"14.22%, 0.0677",VERIFIED
+docs/10_root_cause_findings.md,70,"Ngưỡng kích hoạt can thiệp vận hành (nhập viện, chẩn đoán, tuổi)",">= 1 lần trong 12 tháng, >= 9 chẩn đoán, >= 70 tuổi",Thiết kế quy trình vận hành lâm sàng,Quy ước vận hành,DESIGN_OK
+docs/20_PRD_intervention.md,2,Cửa sổ thời gian quy trình can thiệp chuyển tiếp,48 Giờ,Thiết kế tiêu đề PRD,48 giờ,DESIGN_OK
+docs/20_PRD_intervention.md,7,Tổng số đợt điều trị làm sạch trong bối cảnh,"99,343",outputs/tables/eda_summary_overall.csv,"99,343",VERIFIED
+docs/20_PRD_intervention.md,7,Ngưỡng phân tầng nhóm nguy cơ cao (Top 20%),20%,Quy ước thiết kế phân tầng rủi ro,Top 20%,DESIGN_OK
+docs/20_PRD_intervention.md,7,Tỷ lệ tái nhập thực tế của nhóm High Risk,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+docs/20_PRD_intervention.md,7,Tỷ số rủi ro High Risk so với Low Risk,3.3 lần,outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x (~3.3 lần),VERIFIED
+docs/20_PRD_intervention.md,7,Tỷ lệ tái nhập thực tế của nhóm Low Risk,6.53%,"outputs/risk_scores.csv (646/9,895)",6.53%,VERIFIED
+docs/20_PRD_intervention.md,8,Khoảng trống chăm sóc sau xuất viện,48 - 72 giờ,Giả thuyết lâm sàng,48-72h,DESIGN_OK
+docs/20_PRD_intervention.md,9,Thời gian thực hiện cuộc gọi chuyên môn,48 giờ,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+docs/20_PRD_intervention.md,16,Cửa sổ tái nhập viện mục tiêu,30 ngày,Định nghĩa KPI bài toán,30 ngày,DESIGN_OK
+docs/20_PRD_intervention.md,22,Baseline tỷ lệ tái nhập 30 ngày ở nhóm High Risk (Primary KPI),21.74%,outputs/risk_scores.csv,21.74%,VERIFIED
+docs/20_PRD_intervention.md,23,Cửa sổ cuộc gọi rà soát sau xuất viện,48h,Định nghĩa Process KPI 1,48h,DESIGN_OK
+docs/20_PRD_intervention.md,23,Baseline tỷ lệ tiếp cận cuộc gọi 48h,0%,Hiện trạng chưa triển khai quy trình (đã gắn nhãn),0%,DESIGN_OK
+docs/20_PRD_intervention.md,23,Mục tiêu tỷ lệ tiếp cận thành công cuộc gọi 48h,>= 85%,Mục tiêu vận hành thiết kế (đã gắn nhãn),>= 85%,DESIGN_OK
+docs/20_PRD_intervention.md,24,Baseline tỷ lệ rà soát thuốc tại giường (Teach-Back Reconciliation),"~30% *(ước lượng hiện trạng vận hành lâm sàng — tham số thiết kế, không suy ra từ dữ liệu)*",Giả định hiện trạng quy trình lâm sàng (đã gắn nhãn minh bạch tham số thiết kế),~30% (tham số thiết kế),DESIGN_OK
+docs/20_PRD_intervention.md,24,Mục tiêu tỷ lệ rà soát thuốc tại giường,>= 90%,Mục tiêu vận hành thiết kế (đã gắn nhãn),>= 90%,DESIGN_OK
+docs/20_PRD_intervention.md,25,Giới hạn thời gian chờ làm thủ tục xuất viện kéo dài,Không tăng quá 15 phút,Chỉ số bảo vệ vận hành (đã gắn nhãn),15 phút,DESIGN_OK
+docs/20_PRD_intervention.md,26,Baseline tỷ lệ bệnh nhân phàn nàn,0%,Hiện trạng chưa triển khai (đã gắn nhãn),0%,DESIGN_OK
+docs/20_PRD_intervention.md,26,Giới hạn trần tỷ lệ bệnh nhân phàn nàn về cuộc gọi,< 1.5%,Chỉ số bảo vệ vận hành (đã gắn nhãn),< 1.5%,DESIGN_OK
+docs/20_PRD_intervention.md,33,Độ tuổi bệnh nhân trong chân dung người dùng (Persona),>= 65 tuổi,Mô tả định tính chân dung người bệnh,>= 65 tuổi,DESIGN_OK
+docs/20_PRD_intervention.md,40,Thời gian thông báo Dược lâm sàng trước giờ xuất viện,2-4 tiếng,Thiết kế luồng quy trình vận hành,2-4h,DESIGN_OK
+docs/20_PRD_intervention.md,56,Ngưỡng phân tầng High Risk trong luồng xử lý,Top 20%,Quy ước phân tầng,Top 20%,DESIGN_OK
+docs/20_PRD_intervention.md,57,Tên gói can thiệp theo dõi sau xuất viện,48h,Thiết kế quy trình,48h,DESIGN_OK
+docs/20_PRD_intervention.md,61,Thời điểm Dược sĩ tư vấn tại giường trước xuất viện,2-4h,Thiết kế quy trình,2-4h,DESIGN_OK
+docs/20_PRD_intervention.md,62,Thời hạn tái khám sớm chuyên khoa,N+7 ngày,Thiết kế quy trình,7 ngày,DESIGN_OK
+docs/20_PRD_intervention.md,68,Thời hạn thực hiện cuộc gọi điều dưỡng,48h sau xuất viện,Thiết kế quy trình,48h,DESIGN_OK
+docs/20_PRD_intervention.md,69,Số điểm kiểm tra trong checklist cuộc gọi,Checklist 5 điểm,Thiết kế checklist lâm sàng,5 điểm,DESIGN_OK
+docs/20_PRD_intervention.md,80,Số điện thoại cấp cứu khẩn cấp,115,Tổng đài cấp cứu y tế,115,DESIGN_OK
+docs/20_PRD_intervention.md,82,Thời hạn bác sĩ tư vấn điều chỉnh liều từ xa (báo động vàng),trong vòng 2 giờ,Cam kết mức độ dịch vụ (SLA),2 giờ,DESIGN_OK
+docs/20_PRD_intervention.md,90,Ngưỡng phân tầng tự động trên EHR (FR-01),Top 20%,Thiết kế chức năng mô hình,Top 20%,DESIGN_OK
+docs/20_PRD_intervention.md,91,Cửa sổ tái nhập viện hiển thị cảnh báo (FR-02),30 ngày,Thiết kế chức năng EHR,30 ngày,DESIGN_OK
+docs/20_PRD_intervention.md,91,Xác suất dự báo rủi ro nhóm High Risk hiển thị banner (FR-02),21.7%,outputs/risk_scores.csv (21.74% làm tròn),21.74%,VERIFIED
+docs/20_PRD_intervention.md,91,Thời hạn gói can thiệp hiển thị trên banner (FR-02),48h,Thiết kế chức năng EHR,48h,DESIGN_OK
+docs/20_PRD_intervention.md,92,Số lượng công việc tự động tạo trên EHR (FR-03),2 công việc,Thiết kế chức năng hệ thống,2 tasks,DESIGN_OK
+docs/20_PRD_intervention.md,94,Ngày hẹn cuộc gọi điều dưỡng (FR-03),ngày N+2 (trong 48h),Thiết kế quy trình,48h,DESIGN_OK
+docs/20_PRD_intervention.md,97,Số câu hỏi trắc nghiệm trong form cuộc gọi (FR-04),5 câu hỏi,Thiết kế biểu mẫu điện tử,5 câu,DESIGN_OK
+docs/20_PRD_intervention.md,98,Ngưỡng đường huyết kích hoạt cảnh báo đỏ (FR-05),< 70 mg/dL,Tiêu chuẩn lâm sàng hạ đường huyết y khoa,< 70 mg/dL,DESIGN_OK
+docs/20_PRD_intervention.md,109,Lộ trình tuần tích hợp API (Tuần 1 - 2),Tuần 1 - 2,Kế hoạch triển khai dự án,Tuần 1-2,DESIGN_OK
+docs/20_PRD_intervention.md,110,Lộ trình tuần thí điểm pilot (Tuần 3 - 4),Tuần 3 - 4,Kế hoạch triển khai dự án,Tuần 3-4,DESIGN_OK
+docs/20_PRD_intervention.md,110,Số khoa thí điểm pilot ban đầu,2 khoa,Kế hoạch triển khai dự án,2 khoa,DESIGN_OK
+docs/20_PRD_intervention.md,111,Lộ trình tuần thử nghiệm A/B testing (Tuần 5 - 12),Tuần 5 - 12,Kế hoạch triển khai dự án,Tuần 5-12,DESIGN_OK
+docs/30_ab_test_plan.md,2,Thời hạn cuộc gọi can thiệp trong tiêu đề Phase 6,48h,Thiết kế quy trình,48h,DESIGN_OK
+docs/30_ab_test_plan.md,7,Cửa sổ tái nhập viện trong giả thuyết thống kê (H0),30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,7,Cửa sổ thời gian gói can thiệp trong giả thuyết H0,48h,Định nghĩa can thiệp,48h,DESIGN_OK
+docs/30_ab_test_plan.md,9,Cửa sổ tái nhập viện trong giả thuyết thống kê (H1),30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,11,Mức ý nghĩa thống kê thử nghiệm lâm sàng (alpha),0.05,Tham số thiết kế thử nghiệm A/B,0.05,DESIGN_OK
+docs/30_ab_test_plan.md,11,Độ tin cậy kiểm định thống kê hai phía,95%,Tham số thiết kế thử nghiệm A/B,95%,DESIGN_OK
+docs/30_ab_test_plan.md,12,Lực kiểm định thống kê thử nghiệm (1 - beta),0.80 (80%),Tham số thiết kế thử nghiệm A/B,0.80,DESIGN_OK
+docs/30_ab_test_plan.md,25,Tiêu chuẩn chọn mẫu: phân tầng mô hình (High Risk),Top 20%,Tiêu chuẩn chọn đối tượng vào thử nghiệm,Top 20%,DESIGN_OK
+docs/30_ab_test_plan.md,35,Tỷ lệ phân nhóm ngẫu nhiên: Nhóm A (Đối chứng),50%,Thiết kế ngẫu nhiên hóa 1:1,50%,DESIGN_OK
+docs/30_ab_test_plan.md,35,Tỷ lệ phân nhóm ngẫu nhiên: Nhóm B (Can thiệp),50%,Thiết kế ngẫu nhiên hóa 1:1,50%,DESIGN_OK
+docs/30_ab_test_plan.md,37,Lịch hẹn tái khám định kỳ nhóm đối chứng,30 ngày,Quy trình chăm sóc tiêu chuẩn,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,38,Thời hạn cuộc gọi chủ động nhóm can thiệp,48 giờ,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+docs/30_ab_test_plan.md,38,Số điểm kiểm tra có cấu trúc trong cuộc gọi,5 điểm,Thiết kế checklist cuộc gọi,5 điểm,DESIGN_OK
+docs/30_ab_test_plan.md,39,Lịch hẹn tái khám định kỳ nhóm đối chứng (bảng so sánh),30 ngày,Quy trình chăm sóc tiêu chuẩn,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,39,Cửa sổ tái khám chuyên khoa sớm nhóm can thiệp,ngày N+7 đến N+10,Thiết kế quy trình can thiệp,7-10 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,46,Cửa sổ biến kết cuộc chính (Primary Endpoint),30 ngày,Định nghĩa kết cuộc thử nghiệm,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,47,Cửa sổ tái nhập viện trong công thức tính Readmission Rate,30 ngày,Công thức tính toán,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,50,Cửa sổ thời gian chỉ số phụ 48h Call Adherence Rate,48h,Định nghĩa Secondary Endpoint,48h,DESIGN_OK
+docs/30_ab_test_plan.md,50,Mục tiêu tỷ lệ hoàn thành cuộc gọi đúng hạn,>= 85%,Mục tiêu thiết kế vận hành,>= 85%,DESIGN_OK
+docs/30_ab_test_plan.md,51,Thời hạn khám lại theo hẹn sớm,N+7,Định nghĩa Secondary Endpoint,7 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,56,Giới hạn thời gian làm chậm trễ giờ trả phòng bệnh,> 15 phút,Định nghĩa Guardrail Metric,15 phút,DESIGN_OK
+docs/30_ab_test_plan.md,57,Mục tiêu tỷ lệ phàn nàn của khách hàng,< 1.5%,Định nghĩa Guardrail Metric,< 1.5%,DESIGN_OK
+docs/30_ab_test_plan.md,63,"Tham số kiểm định tính cỡ mẫu (alpha = 0.05, Power = 80%)","alpha = 0.05, Power = 80%",Thiết kế tham số thống kê kiểm định,"0.05, 0.80",DESIGN_OK
+docs/30_ab_test_plan.md,64,Baseline High-Risk Readmission Rate (p1),21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+docs/30_ab_test_plan.md,65,Dải hiệu ứng tối thiểu có thể phát hiện (MDE),2 đến 7 điểm phần trăm,Thiết kế kịch bản thử nghiệm,2 - 7 pp,DESIGN_OK
+docs/30_ab_test_plan.md,70,Tỷ lệ dự phòng mất dấu bệnh nhân (dropout rate),5%,Giả định thống kê lâm sàng,5%,DESIGN_OK
+docs/30_ab_test_plan.md,71,"Cỡ mẫu MDE = 2 pp: p2, N_arm, N_total, N_with_dropout","19.74%, 6,448, 12,896, 13,575",outputs/tables/ab_sample_size_by_effect.csv,"19.74%, 6448, 12896, 13575",VERIFIED
+docs/30_ab_test_plan.md,72,"Cỡ mẫu MDE = 3 pp: p2, N_arm, N_total, N_with_dropout","18.74%, 2,813, 5,626, 5,923",outputs/tables/ab_sample_size_by_effect.csv,"18.74%, 2813, 5626, 5923",VERIFIED
+docs/30_ab_test_plan.md,73,"Cỡ mẫu MDE = 4 pp: p2, N_arm, N_total, N_with_dropout","17.74%, 1,551, 3,102, 3,266",outputs/tables/ab_sample_size_by_effect.csv,"17.74%, 1551, 3102, 3266",VERIFIED
+docs/30_ab_test_plan.md,74,"Cỡ mẫu MDE = 5 pp: p2, N_arm, N_total, N_with_dropout","16.74%, 972, 1,944, 2,047",outputs/tables/ab_sample_size_by_effect.csv,"16.74%, 972, 1944, 2047",VERIFIED
+docs/30_ab_test_plan.md,75,"Cỡ mẫu MDE = 6 pp: p2, N_arm, N_total, N_with_dropout","15.74%, 661, 1,322, 1,392",outputs/tables/ab_sample_size_by_effect.csv,"15.74%, 661, 1322, 1392",VERIFIED
+docs/30_ab_test_plan.md,76,"Cỡ mẫu MDE = 7 pp: p2, N_arm, N_total, N_with_dropout","14.74%, 474, 948, 998",outputs/tables/ab_sample_size_by_effect.csv,"14.74%, 474, 948, 998",VERIFIED
+docs/30_ab_test_plan.md,86,"Ước tính thời gian MDE = 6 pp (N, lưu lượng, thời gian)","N pprox 1,392; ~200 ca/tháng; 7.0 tháng",outputs/tables/ab_sample_size_by_effect.csv (1392/200 = 6.96 pprox 7.0),7.0 tháng,VERIFIED
+docs/30_ab_test_plan.md,87,"Ước tính thời gian MDE = 5 pp (N, lưu lượng, thời gian)","N pprox 2,047; ~200 ca/tháng; 10.2 tháng",outputs/tables/ab_sample_size_by_effect.csv (2047/200 = 10.235 pprox 10.2),10.2 tháng,VERIFIED
+docs/30_ab_test_plan.md,88,"Ước tính thời gian MDE = 4 pp (N, lưu lượng, thời gian)","N pprox 3,266; ~350 ca/tháng; 9.3 tháng",outputs/tables/ab_sample_size_by_effect.csv (3266/350 = 9.331 pprox 9.3),9.3 tháng,VERIFIED
+docs/30_ab_test_plan.md,89,Thời gian theo dõi bổ sung sau chốt mẫu bệnh nhân cuối,30 ngày (1 tháng),Cửa sổ theo dõi biến mục tiêu,30 ngày,DESIGN_OK
+docs/30_ab_test_plan.md,101,Tiêu chuẩn phân tích giữa kỳ (Interim analysis fraction),50% cỡ mẫu,Quy tắc an toàn thử nghiệm lâm sàng,50%,DESIGN_OK
+docs/30_ab_test_plan.md,101,Ngưỡng p-value dừng thử nghiệm sớm vì biến cố bất lợi,p < 0.001,Quy tắc an toàn thử nghiệm lâm sàng,p < 0.001,DESIGN_OK
+docs/40_model_ceiling.md,6,Cửa sổ tái nhập viện bài toán dự đoán,30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+docs/40_model_ceiling.md,6,ROC-AUC của mô hình XGBoost challenger,0.6670,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+docs/40_model_ceiling.md,6,Recall @ Top 20% của mô hình XGBoost challenger,38.90%,outputs/tables/model_comparison.csv (0.389 -> 38.90%),38.90%,VERIFIED
+docs/40_model_ceiling.md,6,Khoảng dao động ROC-AUC các thử nghiệm mở rộng,0.66 - 0.67,outputs/tables/model_experiments_old_vs_new.csv (0.6613 - 0.6690),0.66 - 0.67,VERIFIED
+docs/40_model_ceiling.md,12,Mức trần hiệu năng dữ liệu ROC-AUC,~0.667,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+docs/40_model_ceiling.md,19,"Cỡ mẫu tại 10% tỷ lệ bệnh nhân huấn luyện (pts, encounters)","10% (5,599 pts, 7,771 enc)",outputs/tables/learning_curve_results.csv,"5599 pts, 7771 enc",VERIFIED
+docs/40_model_ceiling.md,19,"Cỡ mẫu tại 100% tỷ lệ bệnh nhân huấn luyện (pts, encounters)","100% (55,992 pts, 79,541 enc)",outputs/tables/learning_curve_results.csv,"55992 pts, 79541 enc",VERIFIED
+docs/40_model_ceiling.md,19,Số lượt khám trong tập kiểm tra độc lập cố định,"19,802 lượt khám",outputs/tables/learning_curve_results.csv / risk_scores.csv,"19,802",VERIFIED
+docs/40_model_ceiling.md,23,"Learning curve 10%: Train/Test AUC, Test Recall@20","Train AUC 0.8142, Test AUC 0.6292, Recall@20 36.06%",outputs/tables/learning_curve_results.csv,"0.8142, 0.6292, 0.3606",VERIFIED
+docs/40_model_ceiling.md,24,"Learning curve 20%: Pts, Enc, Train/Test AUC, Recall@20","11,198 pts, 15,733 enc, Train 0.7601, Test 0.6549, Rec 38.13%",outputs/tables/learning_curve_results.csv,"11198, 15733, 0.7601, 0.6549, 0.3813",VERIFIED
+docs/40_model_ceiling.md,25,"Learning curve 40%: Pts, Enc, Train/Test AUC, Recall@20","22,396 pts, 31,762 enc, Train 0.7201, Test 0.6594, Rec 38.18%",outputs/tables/learning_curve_results.csv,"22396, 31762, 0.7201, 0.6594, 0.3818",VERIFIED
+docs/40_model_ceiling.md,26,"Learning curve 60%: Pts, Enc, Train/Test AUC, Recall@20","33,595 pts, 47,691 enc, Train 0.7077, Test 0.6635, Rec 38.76%",outputs/tables/learning_curve_results.csv,"33595, 47691, 0.7077, 0.6635, 0.3876",VERIFIED
+docs/40_model_ceiling.md,27,"Learning curve 80%: Pts, Enc, Train/Test AUC, Recall@20","44,793 pts, 63,545 enc, Train 0.7039, Test 0.6638, Rec 38.58%",outputs/tables/learning_curve_results.csv,"44793, 63545, 0.7039, 0.6638, 0.3858",VERIFIED
+docs/40_model_ceiling.md,28,"Learning curve 100%: Pts, Enc, Train/Test AUC, Recall@20","55,992 pts, 79,541 enc, Train 0.6978, Test 0.6670, Rec 38.90%",outputs/tables/learning_curve_results.csv,"55992, 79541, 0.6978, 0.6670, 0.3890",VERIFIED
+docs/40_model_ceiling.md,31,Chênh lệch Test ROC-AUC giữa 80% (0.6638) và 100% (0.6670),0.0032 (< 0.01),outputs/tables/learning_curve_results.csv (0.6670 - 0.6638),0.0032,VERIFIED
+docs/40_model_ceiling.md,39,Số cột đặc trưng và số nhóm thông tin phân loại,"113 cột, 6 nhóm",outputs/tables/feature_ablation.csv,"113 cols, 6 groups",VERIFIED
+docs/40_model_ceiling.md,45,"Feature Ablation: Full model (Num cols, AUC, Change)","113 cols, 0.6670, 0.0000",outputs/tables/feature_ablation.csv,"113, 0.6670, 0.0000",VERIFIED
+docs/40_model_ceiling.md,46,"Feature Ablation: Prior Utilization (Cols, Single AUC, Leave-out, Delta)","3 cols, Single 0.6058, Leave-out 0.6280, Delta -0.0391",outputs/tables/feature_ablation.csv,"3, 0.6058, 0.6280, -0.0391",VERIFIED
+docs/40_model_ceiling.md,47,"Feature Ablation: Admission & LOS (Cols, Single AUC, Leave-out, Delta)","56 cols, Single 0.6086, Leave-out 0.6310, Delta -0.0360",outputs/tables/feature_ablation.csv,"56, 0.6086, 0.6310, -0.0360",VERIFIED
+docs/40_model_ceiling.md,48,"Feature Ablation: Diagnoses (Cols, Single AUC, Leave-out, Delta)","9 cols, Single 0.5492, Leave-out 0.6651, Delta -0.0020",outputs/tables/feature_ablation.csv,"9, 0.5492, 0.6651, -0.0020",VERIFIED
+docs/40_model_ceiling.md,49,"Feature Ablation: Medications (Cols, Single AUC, Leave-out, Delta)","23 cols, Single 0.5528, Leave-out 0.6655, Delta -0.0016",outputs/tables/feature_ablation.csv,"23, 0.5528, 0.6655, -0.0016",VERIFIED
+docs/40_model_ceiling.md,50,"Feature Ablation: Demographics (Cols, Single AUC, Leave-out, Delta)","16 cols, Single 0.5144, Leave-out 0.6682, Delta +0.0012",outputs/tables/feature_ablation.csv,"16, 0.5144, 0.6682, +0.0012",VERIFIED
+docs/40_model_ceiling.md,51,"Feature Ablation: Labs (Cols, Single AUC, Leave-out, Delta)","6 cols, Single 0.5083, Leave-out 0.6671, Delta +0.0001",outputs/tables/feature_ablation.csv,"6, 0.5083, 0.6671, +0.0001",VERIFIED
+docs/40_model_ceiling.md,54,Số biến của prior_utilization và admission_los,3 biến và 56 biến,outputs/tables/feature_ablation.csv,3 và 56,VERIFIED
+docs/40_model_ceiling.md,54,Mức sụt giảm AUC khi loại bỏ 2 nhóm trụ cột,~0.036 - 0.039,outputs/tables/feature_ablation.csv,-0.0360 đến -0.0391,VERIFIED
+docs/40_model_ceiling.md,55,Khoảng Single AUC của 4 nhóm biến phụ,AUC 0.508 - 0.553,outputs/tables/feature_ablation.csv (0.5083 - 0.5528),0.5083 - 0.5528,VERIFIED
+docs/40_model_ceiling.md,55,Mức thay đổi AUC tối đa khi bỏ các nhóm phụ,Delta AUC <= 0.002,outputs/tables/feature_ablation.csv (|-0.0020|),<= 0.0020,VERIFIED
+docs/40_model_ceiling.md,61,Cửa sổ tái nhập viện biến mục tiêu,30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+docs/40_model_ceiling.md,65,Tỷ lệ thiếu kết quả xét nghiệm HbA1c,83.05%,outputs/tables/root_cause_multivariate.csv / diabetic_data.csv,83.05%,VERIFIED
+docs/40_model_ceiling.md,65,Single AUC của nhóm đặc trưng Labs,0.5083,outputs/tables/feature_ablation.csv,0.5083,VERIFIED
+docs/40_model_ceiling.md,67,Cửa sổ biến mục tiêu tái nhập viện (readmitted < 30),30 ngày,Định nghĩa nhãn nhị phân,< 30 ngày,DESIGN_OK
+docs/40_model_ceiling.md,72,Giai đoạn thu thập và số bệnh viện trong bộ dữ liệu,1999–2008 của 130 bệnh viện Hoa Kỳ,Strack et al. (2014) & UCI repository,"1999-2008, 130 bệnh viện",VERIFIED
+docs/40_model_ceiling.md,73,Mức trần ROC-AUC phổ biến ghi nhận trong y văn cho dữ liệu EHR (Kansagara et al. 2011),0.55 – 0.65 (và 0.64 – 0.68 tham chiếu y văn ngoài),"Kansagara et al. (2011), JAMA, doi:10.1001/jama.2011.1515",0.55 - 0.65 (JAMA 2011 systematic review),VERIFIED
+docs/40_model_ceiling.md,74,Mức ROC-AUC mô hình trong dự án đối chiếu y văn,0.667,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+docs/40_model_ceiling.md,80,Lift @ Top 20% trong kết luận vận hành,1.94x,outputs/tables/model_comparison.csv,1.94,VERIFIED
+docs/40_model_ceiling.md,80,Recall @ Top 20% trong kết luận vận hành,38.90%,outputs/tables/model_comparison.csv,38.90%,VERIFIED
+docs/40_model_ceiling.md,80,Tỷ lệ nguồn lực điều dưỡng tập trung,20%,Quy ước phân tầng vận hành,20%,DESIGN_OK
+docs/40_model_ceiling.md,80,Mức chênh lệch rủi ro thực tế nhóm đỉnh so với nhóm đáy,3.3 lần,outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x (~3.3 lần),VERIFIED
+docs/40_model_ceiling.md,85,Số lượng bệnh án trong tiêu đề bài báo Strack et al. (2014),"70,000 Clinical Database Patient Records",Tiêu đề bài báo khoa học xuất bản BioMed Research Int.,"70,000",VERIFIED
+README.md,1,Cửa sổ tái nhập viện trong tiêu đề chính dự án,30 Ngày,Định nghĩa bài toán,30 ngày,DESIGN_OK
+README.md,2,Cửa sổ tái nhập viện trong phụ đề tiếng Anh,30-Day,Định nghĩa bài toán,30 ngày,DESIGN_OK
+README.md,7,Cửa sổ tái nhập viện trong tóm tắt điều hành,30 ngày,Định nghĩa bài toán,30 ngày,DESIGN_OK
+README.md,7,Số lượt điều trị nội trú sạch sau làm sạch,"99,343",outputs/tables/eda_summary_overall.csv,"99,343",VERIFIED
+README.md,7,Số lượng bệnh viện trong tên bộ dữ liệu,130-US Hospitals,Tên dataset UCI,130,VERIFIED
+README.md,7,Mã định danh bộ dữ liệu trên UCI ML Repository,UCI id=296,UCI Machine Learning Repository,id=296,VERIFIED
+README.md,8,Ngưỡng ý nghĩa thống kê chọn yếu tố độc lập,p < 0.05,Tiêu chuẩn kiểm định thống kê,p < 0.05,DESIGN_OK
+README.md,9,Tỷ lệ phân tầng nhóm nguy cơ cao nhất (High Risk),20%,Quy ước phân tầng vận hành,Top 20%,DESIGN_OK
+README.md,9,Tỷ lệ tái nhập thực tế nhóm High Risk,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+README.md,9,Tỷ số chênh rủi ro High Risk vs Low Risk,3.3 lần,outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x (~3.3 lần),VERIFIED
+README.md,9,Tỷ lệ tái nhập thực tế nhóm Low Risk,6.53%,"outputs/risk_scores.csv (646/9,895)",6.53%,VERIFIED
+README.md,10,Thời gian quy trình chăm sóc chuyển tiếp,48 giờ,Thiết kế gói can thiệp,48h,DESIGN_OK
+README.md,10,Cửa sổ cuộc gọi chuyên môn đầu tiên tại nhà,48h đầu,Thiết kế gói can thiệp,48h,DESIGN_OK
+README.md,11,Cỡ mẫu thử nghiệm A/B theo dải hiệu ứng MDE trong Tóm tắt điều hành §1,"~1,392 bệnh nhân (tổng 2 nhóm, gồm dự phòng mất dấu 5%) cho mức giảm tuyệt đối 6 điểm %",outputs/tables/ab_sample_size_by_effect.csv (dòng MDE=6 pp),"1,392 (661/nhánh, N_total 1,322, gồm dropout 5% = 1,392)",VERIFIED
+README.md,16,Cửa sổ tái nhập viện trong tuyên bố vấn đề,30 ngày đầu tại nhà,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+README.md,17,Số lượng chỉ số KPI cốt lõi,3 Chỉ số KPI,Thiết kế hệ thống đo lường,3 KPIs,DESIGN_OK
+README.md,18,Cửa sổ thời gian Primary KPI,30-Day,Định nghĩa Primary KPI,30 ngày,DESIGN_OK
+README.md,18,Mục tiêu giả định tỷ lệ tái nhập nhóm nguy cơ cao sau can thiệp,<= 16.0%,Mục tiêu thiết kế giả định (đã gắn nhãn),<= 16.0%,DESIGN_OK
+README.md,18,Tỷ lệ tái nhập nền nhóm High Risk tập test,21.74%,outputs/risk_scores.csv,21.74%,VERIFIED
+README.md,19,Ngưỡng phân tầng nhóm nguy cơ cao (Recall @ Top 20%),Top 20%,Định nghĩa Operational KPI,Top 20%,DESIGN_OK
+README.md,19,Recall @ Top 20% của mô hình,38.90%,outputs/tables/model_comparison.csv (0.389 -> 38.90%),38.90%,VERIFIED
+README.md,19,Độ bao phủ ước tính số ca tái nhập toàn viện,gần 40%,outputs/tables/model_comparison.csv (~38.9%),~38.9%,VERIFIED
+README.md,19,Tỷ lệ bệnh nhân nặng nhất tập trung nguồn lực,20%,Ràng buộc vận hành,20%,DESIGN_OK
+README.md,20,Cửa sổ thời gian cuộc gọi Process KPI,48h,Định nghĩa Process KPI,48h,DESIGN_OK
+README.md,20,Mục tiêu tỷ lệ hoàn thành cuộc gọi rà soát,>= 85%,Mục tiêu vận hành thiết kế,>= 85%,DESIGN_OK
+README.md,20,Thời hạn hoàn thành cuộc gọi sau xuất viện,48h,Thiết kế quy trình,48h,DESIGN_OK
+README.md,27,Ngưỡng ý nghĩa thống kê của confirmed independent drivers,p < 0.05,Tiêu chuẩn kiểm định thống kê,p < 0.05,DESIGN_OK
+README.md,32,"Table confirmed drivers: num_inpatient OR, CI, p-value","OR = 1.305, [1.249 - 1.362], p < 0.0001",outputs/tables/root_cause_multivariate.csv,"1.305, [1.249 - 1.362], 0.0000",VERIFIED
+README.md,32,Table confirmed drivers: num_inpatient đơn biến (>=4 vs 0 lần),>= 4 lần: 31.36% vs 0 lần: 8.59%,outputs/tables/eda_readmission_by_prior_utilization.csv,31.36% vs 8.59%,VERIFIED
+README.md,33,"Table confirmed drivers: number_diagnoses OR, CI, p-value, tăng %","OR = 1.052, [1.022 - 1.082], p = 0.0005, tăng 5.2%",outputs/tables/root_cause_multivariate.csv,"1.052, [1.022 - 1.082], 0.00051, 5.19%",VERIFIED
+README.md,34,Ngưỡng tuổi cao bệnh nhân cao tuổi,>= 70,Định nghĩa biến phân nhóm,>= 70,DESIGN_OK
+README.md,34,"Table confirmed drivers: is_elderly_70plus OR, CI, p-value","OR = 1.172, [1.022 - 1.344], p = 0.0233",outputs/tables/root_cause_multivariate.csv,"1.172, [1.022 - 1.344], 0.0233",VERIFIED
+README.md,35,"Table confirmed drivers: time_in_hospital OR, CI, p-value","OR = 1.025, [1.000 - 1.050], p = 0.0480",outputs/tables/root_cause_multivariate.csv,"1.025, [1.000 - 1.050], 0.0480",VERIFIED
+README.md,38,"Tỷ lệ tái nhập đơn biến các nhóm insulin (down, up, no)","down: 14.22%, up: 13.33%, no: 10.21%",outputs/tables/root_cause_medications.csv,"14.22%, 13.33%, 10.21%",VERIFIED
+README.md,38,P-value đa biến của insulin_down và insulin_up,p = 0.0677 và p = 0.2507,outputs/tables/root_cause_multivariate.csv,0.0677 và 0.2507,VERIFIED
+README.md,40,Tỷ lệ hồ sơ không có xét nghiệm HbA1c,83.05%,outputs/tables/root_cause_multivariate.csv / diabetic_data.csv,83.05%,VERIFIED
+README.md,41,"P-value đa biến, OR, 95% CI của no_a1c_test","p = 0.1076, OR = 1.146, 95% CI: [0.971 - 1.352]",outputs/tables/root_cause_multivariate.csv,"0.1076, 1.146, [0.971 - 1.352]",VERIFIED
+README.md,49,Tỷ lệ chia tập Train/Test theo patient_nbr,80/20,Chiến lược phân chia mẫu chống rò rỉ,80% train / 20% test,DESIGN_OK
+README.md,49,Số bệnh nhân trong tập train và test,"55,992 train, 13,998 test",outputs/tables/learning_curve_results.csv & split_by_patient,"55,992 train, 13,998 test",VERIFIED
+README.md,53,"Model comparison Table: LogReg AUC, PR-AUC, Rec@20, Prec@20, Lift, Brier","0.6613, 0.2158, 38.00%, 21.26%, 1.90x, 0.0954",outputs/tables/model_comparison.csv,"0.6613, 0.2158, 0.380, 0.2126, 1.90, 0.0954",VERIFIED
+README.md,54,"Model comparison Table: XGBoost AUC, PR-AUC, Rec@20, Prec@20, Lift, Brier","0.6670, 0.2312, 38.90%, 21.76%, 1.94x, 0.0944",outputs/tables/model_comparison.csv,"0.6670, 0.2312, 0.389, 0.2176, 1.94, 0.0944",VERIFIED
+README.md,57,ROC-AUC của mô hình XGBoost (text 4.2),0.6670,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+README.md,59,Lift @ Top 20% của mô hình (text 4.2),1.94x,outputs/tables/model_comparison.csv,1.94,VERIFIED
+README.md,60,Mức chênh rủi ro thực tế giữa High Risk và Low Risk,3.3 lần (21.74% vs 6.53%),outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x (21.74% vs 6.53%),VERIFIED
+README.md,60,Tỷ lệ nhóm rủi ro thấp ở đáy,50% đáy,Định nghĩa tầng Low Risk,50%,DESIGN_OK
+README.md,61,Precision @ Top 20% của mô hình,21.76%,outputs/tables/model_comparison.csv,0.2176 (21.76%),VERIFIED
+README.md,62,Tỷ lệ bệnh nhân gắn cờ nguy cơ cao không tái nhập (tải False Positive),78.2%,Recomputed: 100% - 21.76% = 78.24% (~78.2%),78.24%,VERIFIED
+README.md,63,Thời lượng cuộc gọi can thiệp của điều dưỡng,5-10 phút,Ước lượng vận hành quy trình,5-10 phút,DESIGN_OK
+README.md,63,Độ bao phủ số ca tái nhập toàn viện ở Top 20%,gần 40%,outputs/tables/model_comparison.csv (~38.9%),38.90%,VERIFIED
+README.md,67,Ngưỡng cờ đa bệnh lý trong thử nghiệm Feature Engineering,>= 9 chẩn đoán,notebooks/03_model.py (number_diagnoses >= 9),>= 9,DESIGN_OK
+README.md,71,Kết quả Feature Engineering: AUC và Recall@20 thay đổi,AUC: 0.6670 -> 0.6668 (-0.0002); Rec: 38.90% -> 38.45% (-0.45%),outputs/tables/model_experiments_old_vs_new.csv,"0.6668 (-0.0002), 0.3845 (-0.0045)",VERIFIED
+README.md,72,Kết quả scale_pos_weight: Brier score tăng,0.0944 -> 0.2215,outputs/tables/model_experiments_old_vs_new.csv,0.0944 -> 0.2215,VERIFIED
+README.md,73,"Kết quả CalibratedClassifierCV: AUC tăng, Recall@20 giảm","AUC 0.6690 (+0.0020), Recall@20 38.67%",outputs/tables/model_experiments_old_vs_new.csv,"0.6690, 0.3867",VERIFIED
+README.md,75,Ngưỡng bão hòa bệnh nhân trên Learning Curve,"N >= 45,000 bệnh nhân","outputs/tables/learning_curve_results.csv (80% fraction = 44,793 ~ 45,000)","44,793 (~45,000)",VERIFIED
+README.md,81,Thời gian quy trình chuyển tiếp trong tiêu đề PRD §5.1,48 Giờ,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+README.md,83,Thời gian cuộc gọi điều dưỡng chủ động,48 giờ,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+README.md,83,Số điểm kiểm tra trong checklist cuộc gọi,5 điểm,Thiết kế quy trình can thiệp,5 điểm,DESIGN_OK
+README.md,84,Thời hạn bác sĩ can thiệp khẩn cấp (Escalation),2h,Cam kết dịch vụ lâm sàng (SLA),2h,DESIGN_OK
+README.md,92,Ngưỡng phân tầng thử nghiệm lâm sàng A/B (High Risk),Top 20%,Tiêu chuẩn chọn đối tượng vào thử nghiệm,Top 20%,DESIGN_OK
+README.md,93,Baseline tỷ lệ tái nhập nhóm đối chứng (p1) và gói can thiệp,"p1 = 21.74%, Gói chuyển tiếp 48h",outputs/risk_scores.csv & thiết kế can thiệp,"21.74%, 48h",VERIFIED
+README.md,95,"Tham số kiểm định tính cỡ mẫu A/B: alpha, Power, p1","alpha=0.05, Power=80%, p1 = 21.74%",Thiết kế tham số & outputs/risk_scores.csv,"0.05, 0.80, 21.74%",VERIFIED
+README.md,99,Tỷ lệ dự phòng mất dấu bệnh nhân trong tiêu đề bảng cỡ mẫu,5%,Giả định thống kê lâm sàng,5%,DESIGN_OK
+README.md,101,"Bảng cỡ mẫu MDE = 2 pp: p2, N_arm, N_total, N_with_dropout","19.74%, 6,448, 12,896, 13,575",outputs/tables/ab_sample_size_by_effect.csv,"19.74%, 6448, 12896, 13575",VERIFIED
+README.md,102,"Bảng cỡ mẫu MDE = 3 pp: p2, N_arm, N_total, N_with_dropout","18.74%, 2,813, 5,626, 5,923",outputs/tables/ab_sample_size_by_effect.csv,"18.74%, 2813, 5626, 5923",VERIFIED
+README.md,103,"Bảng cỡ mẫu MDE = 4 pp: p2, N_arm, N_total, N_with_dropout","17.74%, 1,551, 3,102, 3,266",outputs/tables/ab_sample_size_by_effect.csv,"17.74%, 1551, 3102, 3266",VERIFIED
+README.md,104,"Bảng cỡ mẫu MDE = 5 pp: p2, N_arm, N_total, N_with_dropout","16.74%, 972, 1,944, 2,047",outputs/tables/ab_sample_size_by_effect.csv,"16.74%, 972, 1944, 2047",VERIFIED
+README.md,105,"Bảng cỡ mẫu MDE = 6 pp: p2, N_arm, N_total, N_with_dropout","15.74%, 661, 1,322, 1,392",outputs/tables/ab_sample_size_by_effect.csv,"15.74%, 661, 1322, 1392",VERIFIED
+README.md,106,"Bảng cỡ mẫu MDE = 7 pp: p2, N_arm, N_total, N_with_dropout","14.74%, 474, 948, 998",outputs/tables/ab_sample_size_by_effect.csv,"14.74%, 474, 948, 998",VERIFIED
+README.md,112,Số lượng bullet CV tổng kết,3 Bullet CV,Quy ước đóng gói CV,3 bullets,DESIGN_OK
+README.md,115,CV Bullet 1 (Problem): Tỷ lệ tái nhập 30 ngày & tổng số đợt sạch,"30 ngày, 11.39%, 99,343 đợt điều trị",outputs/tables/eda_summary_overall.csv,"11.39%, 99,343",VERIFIED
+README.md,116,CV Bullet 2 (Solution): ROC-AUC mô hình,AUC = 0.667,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+README.md,116,CV Bullet 2 (Solution): Thời gian can thiệp chuyển tiếp,48 giờ,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+README.md,116,Cỡ mẫu thử nghiệm A/B theo effect size trong CV Bullet 2 (Solution),"cỡ mẫu theo effect size (vd ~1,392 ở mức giảm 6 điểm %)",outputs/tables/ab_sample_size_by_effect.csv (dòng MDE=6 pp),"1,392",VERIFIED
+README.md,117,"CV Bullet 3 (Impact): Phân tầng High Risk (Top 20%), tỷ lệ tái nhập","Top 20%, 21.74%",outputs/risk_scores.csv,"Top 20%, 21.74%",VERIFIED
+README.md,117,CV Bullet 3 (Impact): Chênh lệch rủi ro vs nhóm Low Risk,3.3 lần vs 6.53%,outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x vs 6.53%,VERIFIED
+README.md,117,CV Bullet 3 (Impact): Độ bao phủ tái nhập khi tập trung 20% nguồn lực,"38.9% số ca tái nhập, 20% nguồn lực",outputs/tables/model_comparison.csv & risk_scores.csv (863/2216 = 38.94%),"38.90% (863/2216), 20%",VERIFIED
+README.md,127,Kích thước file dữ liệu thô trong Project Structure,"101,766 dòng x 50 cột",data/diabetic_data.csv raw shape,"(101766, 50)",VERIFIED
+README.md,175,"Bối cảnh bộ dữ liệu trong Caveats (số bệnh viện, giai đoạn)",130 bệnh viện Hoa Kỳ (1999-2008),UCI Diabetes repository description,"130 hospitals, 1999-2008",VERIFIED
+demo/risk_worklist_demo.html,403,Mã định danh bộ dữ liệu trong Disclaimer Banner,UCI id=296,UCI Machine Learning Repository,id=296,VERIFIED
+demo/risk_worklist_demo.html,414,Cửa sổ tái nhập viện trong Header Subtitle,30 ngày,Định nghĩa biến mục tiêu,30 ngày,DESIGN_OK
+demo/risk_worklist_demo.html,415,Tỷ lệ nguồn lực điều dưỡng/dược sĩ tập trung can thiệp,20%,Quy ước phân tầng vận hành,20%,DESIGN_OK
+demo/risk_worklist_demo.html,423,KPI Card 1: Tổng số ca kiểm tra (Test Set),"19,802",outputs/risk_scores.csv (len(df)),"19,802",VERIFIED
+demo/risk_worklist_demo.html,428,KPI Card 2: Tỷ lệ phân tầng bắt trúng (Recall @ Top 20%),Top 20%,Định nghĩa KPI 2,Top 20%,DESIGN_OK
+demo/risk_worklist_demo.html,429,KPI Card 2: Giá trị Recall @ Top 20%,38.9%,"outputs/risk_scores.csv (863/2,216 = 38.94%)",38.94% (~38.9%),VERIFIED
+demo/risk_worklist_demo.html,430,KPI Card 2 phụ đề: Số ca tái nhập bắt trúng / tổng ca tái nhập test,"863 / 2,216",outputs/risk_scores.csv,"863 / 2,216",VERIFIED
+demo/risk_worklist_demo.html,435,KPI Card 3: Tỷ lệ tái nhập thực tế nhóm High Risk,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+demo/risk_worklist_demo.html,436,KPI Card 3 phụ đề: Tỷ số rủi ro High Risk vs Low Risk (6.53%),3.33 lần nhóm Low Risk (6.53%),outputs/risk_scores.csv (21.7435% / 6.5285%),3.33x; 6.53%,VERIFIED
+demo/risk_worklist_demo.html,440,KPI Card 4: Tỷ lệ phân tầng độ chính xác (Precision @ Top 20%),Top 20%,Định nghĩa KPI 4,Top 20%,DESIGN_OK
+demo/risk_worklist_demo.html,441,KPI Card 4: Giá trị Precision @ Top 20%,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+demo/risk_worklist_demo.html,442,KPI Card 4 phụ đề: Tỷ lệ ca gắn cờ không tái nhập (tải False Positive),~78%,outputs/risk_scores.csv (100% - 21.74% = 78.26%),78.26% (~78%),VERIFIED
+demo/risk_worklist_demo.html,450,Chart Subtitle: Số lượt xuất viện kiểm tra và tỷ lệ tái nhập nền test,"19,802 lượt; Baseline: 11.19%","outputs/risk_scores.csv (2,216/19,802)","19,802; 11.19%",VERIFIED
+demo/risk_worklist_demo.html,456,Biểu đồ tầng High Risk: Tỷ lệ nhóm (Top 20%),Top 20%,Định nghĩa tầng rủi ro cao,Top 20%,DESIGN_OK
+demo/risk_worklist_demo.html,458,Biểu đồ tầng High Risk: Giá trị thanh tỷ lệ tái nhập (làm tròn),21.7%,"outputs/risk_scores.csv (863/3,969 = 21.74%)",21.74%,VERIFIED
+demo/risk_worklist_demo.html,460,Biểu đồ tầng High Risk: Giá trị nhãn tỷ lệ tái nhập,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+demo/risk_worklist_demo.html,465,Biểu đồ tầng Medium Risk: Tỷ lệ nhóm (30%),30%,Định nghĩa tầng rủi ro vừa,30%,DESIGN_OK
+demo/risk_worklist_demo.html,467,Biểu đồ tầng Medium Risk: Giá trị thanh tỷ lệ tái nhập (làm tròn),11.9%,"outputs/risk_scores.csv (707/5,938 = 11.91%)",11.91%,VERIFIED
+demo/risk_worklist_demo.html,469,Biểu đồ tầng Medium Risk: Giá trị nhãn tỷ lệ tái nhập,11.91%,"outputs/risk_scores.csv (707/5,938)",11.91%,VERIFIED
+demo/risk_worklist_demo.html,474,Biểu đồ tầng Low Risk: Tỷ lệ nhóm (50%),50%,Định nghĩa tầng rủi ro thấp,50%,DESIGN_OK
+demo/risk_worklist_demo.html,476,Biểu đồ tầng Low Risk: Giá trị thanh tỷ lệ tái nhập (làm tròn),6.5%,"outputs/risk_scores.csv (646/9,895 = 6.53%)",6.53%,VERIFIED
+demo/risk_worklist_demo.html,478,Biểu đồ tầng Low Risk: Giá trị nhãn tỷ lệ tái nhập,6.53%,"outputs/risk_scores.csv (646/9,895)",6.53%,VERIFIED
+demo/risk_worklist_demo.html,483,Chú thích biểu đồ High Risk: Tổng số ca và số ca tái nhập,"High: 3,969 ca (tái nhập 863 ca)",outputs/risk_scores.csv (High tier),"3,969 ca (tái nhập 863 ca)",VERIFIED
+demo/risk_worklist_demo.html,484,Chú thích biểu đồ Med Risk: Tổng số ca và số ca tái nhập,"Med: 5,938 ca (tái nhập 707 ca)",outputs/risk_scores.csv (Med tier),"5,938 ca (tái nhập 707 ca)",VERIFIED
+demo/risk_worklist_demo.html,485,Chú thích biểu đồ Low Risk: Tổng số ca và số ca tái nhập,"Low: 9,895 ca (tái nhập 646 ca)",outputs/risk_scores.csv (Low tier),"9,895 ca (tái nhập 646 ca)",VERIFIED
+demo/risk_worklist_demo.html,486,Chú thích biểu đồ: Mức chênh lệch rủi ro High / Low,3.33x,outputs/risk_scores.csv (21.7435% / 6.5285%),3.3305x (~3.33x),VERIFIED
+demo/risk_worklist_demo.html,497,Dropdown lọc tầng: Cỡ mẫu mẫu phân tầng nhúng trong bảng,900 ca mẫu,Cỡ mẫu phân tầng đại diện được nhúng,900 ca,VERIFIED
+demo/risk_worklist_demo.html,498,Dropdown lọc tầng: Tỷ lệ nhóm High Risk (Top 20%),Top 20%,Định nghĩa tầng,Top 20%,DESIGN_OK
+demo/risk_worklist_demo.html,499,Dropdown lọc tầng: Tỷ lệ nhóm Med Risk (30%),30%,Định nghĩa tầng,30%,DESIGN_OK
+demo/risk_worklist_demo.html,500,Dropdown lọc tầng: Tỷ lệ nhóm Low Risk (50%)Bộ,50%,Định nghĩa tầng,50%,DESIGN_OK
+demo/risk_worklist_demo.html,521,Bộ đếm hồ sơ bảng: Số hồ sơ hiển thị / tổng hồ sơ mẫu,900 / 900,Mẫu dữ liệu nhúng trong demo,900 / 900,VERIFIED
+demo/risk_worklist_demo.html,549,Phân trang: Tùy chọn 20 dòng/trang,20 dòng,Tham số giao diện phân trang,20 dòng,DESIGN_OK
+demo/risk_worklist_demo.html,550,Phân trang: Tùy chọn 50 dòng/trang,50 dòng,Tham số giao diện phân trang,50 dòng,DESIGN_OK
+demo/risk_worklist_demo.html,551,Phân trang: Tùy chọn 100 dòng/trang,100 dòng,Tham số giao diện phân trang,100 dòng,DESIGN_OK
+demo/risk_worklist_demo.html,557,Thanh phân trang: Tổng số trang tương ứng 20 dòng/trang,Trang 1 / 45,Recomputed: 900 / 20 = 45 trang,45 trang,VERIFIED
+demo/risk_worklist_demo.html,573,Footer mục 1: Lift @ Top 20% của mô hình,1.94x,outputs/tables/model_comparison.csv,1.94,VERIFIED
+demo/risk_worklist_demo.html,573,Footer mục 1: Khung thời gian cuộc gọi ưu tiên,48h đầu,Thiết kế quy trình can thiệp,48h,DESIGN_OK
+demo/risk_worklist_demo.html,578,Footer mục 2: Precision @ Top 20%,21.74%,"outputs/risk_scores.csv (863/3,969)",21.74%,VERIFIED
+demo/risk_worklist_demo.html,578,Footer mục 2: Tỷ lệ ca gắn cờ không thực sự tái nhập (False Positive),~78.2%,outputs/risk_scores.csv (100% - 21.74% = 78.24%),78.24% (~78.2%),VERIFIED
+demo/risk_worklist_demo.html,578,Footer mục 2: Thời lượng cuộc gọi điều dưỡng,5-10 phút,Ước lượng vận hành quy trình,5-10 phút,DESIGN_OK
+demo/risk_worklist_demo.html,578,Footer mục 2: Độ bao phủ ca tái nhập toàn viện ở Top 20%,38.9%,"outputs/risk_scores.csv (863/2,216 = 38.94%)",38.90% (~38.9%),VERIFIED
+demo/risk_worklist_demo.html,583,Footer mục 3: ROC-AUC mô hình XGBoost,0.6670,outputs/tables/model_comparison.csv,0.6670,VERIFIED
+demo/risk_worklist_demo.html,588,Cửa sổ tái nhập viện trong tên dự án ở Footer,30-Day,Định nghĩa bài toán,30 ngày,DESIGN_OK
+demo/risk_worklist_demo.html,588,Số hồ sơ mẫu nhúng và tổng số lượt khám kiểm tra ở Footer,"900 hồ sơ, 19,802 lượt khám",Thiết kế mẫu nhúng & outputs/risk_scores.csv,"900 và 19,802",VERIFIED
+demo/risk_worklist_demo.html,596,"Phân bổ số lượng mẫu nhúng theo 3 tầng (180 High, 270 Med, 450 Low)","900 dòng (180 High, 270 Med, 450 Low)",Tỷ lệ phân tầng 20% - 30% - 50% trên mẫu 900,"180 High, 270 Med, 450 Low",VERIFIED

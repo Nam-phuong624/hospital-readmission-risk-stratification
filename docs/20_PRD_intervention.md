@@ -21,7 +21,7 @@
 | :--- | :--- | :---: | :---: | :--- |
 | **Primary KPI** | Mức giảm tương đối tỷ lệ tái nhập 30 ngày ở nhóm High Risk | 21.74% | **Đo lường bằng A/B test** *(không gắn con số đích giả định)* | So sánh tỷ lệ tái nhập 30 ngày giữa nhóm can thiệp vs đối chứng qua A/B test. |
 | **Process KPI 1** | Tỷ lệ tiếp cận thành công trong 48h (48h Call Reach Rate) | 0% | **$\ge 85\%$** *(mục tiêu vận hành do nhóm đặt, không phải kết quả từ data)* | Tỷ lệ bệnh nhân nhóm High Risk hoàn thành cuộc gọi rà soát trong 48h sau xuất viện. |
-| **Process KPI 2** | Tỷ lệ rà soát thuốc tại giường (Teach-Back Medication Reconciliation) | ~30% (tản mạn) | **$\ge 90\%$** *(mục tiêu vận hành do nhóm đặt, không phải kết quả từ data)* | % bệnh nhân được Dược sĩ lâm sàng xác nhận hiểu đúng phác đồ tiêm insulin trước khi rời viện. |
+| **Process KPI 2** | Tỷ lệ rà soát thuốc tại giường (Teach-Back Medication Reconciliation) | ~30% *(ước lượng hiện trạng vận hành lâm sàng — tham số thiết kế, không suy ra từ dữ liệu)* | **$\ge 90\%$** *(mục tiêu vận hành do nhóm đặt, không phải kết quả từ data)* | % bệnh nhân được Dược sĩ lâm sàng xác nhận hiểu đúng phác đồ tiêm insulin trước khi rời viện. |
 | **Guardrail KPI** | Thời gian chờ làm thủ tục xuất viện (Discharge Delay) | Baseline | **Không tăng quá 15 phút** *(mục tiêu vận hành do nhóm đặt)* | Đảm bảo quy trình can thiệp tại giường không gây ứ nghẽn quy trình xuất viện chung. |
 | **Guardrail KPI** | Tỷ lệ bệnh nhân phàn nàn về cuộc gọi (Negative Feedback) | 0% | **$< 1.5\%$** *(mục tiêu vận hành do nhóm đặt)* | Đảm bảo tần suất và nội dung cuộc gọi tôn trọng sự riêng tư và hữu ích. |
 

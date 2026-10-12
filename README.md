@@ -8,7 +8,7 @@ Dự án phân tích dữ liệu và thiết kế giải pháp nghiệp vụ y t
 1. **Phân tích nguyên nhân đa biến:** Phân định rõ giữa các yếu tố nguy cơ độc lập đã được xác nhận ($p < 0.05$) và các tín hiệu đơn biến mất ý nghĩa sau khi kiểm soát biến gây nhiễu.
 2. **Phân tầng rủi ro có trách nhiệm:** Xây dựng mô hình máy học chia nhóm bệnh nhân (Group-split theo mã bệnh nhân), phân tách được nhóm 20% nguy cơ cao nhất (High Risk) có tỷ lệ tái nhập thực tế **21.74%**, cao gấp **3.3 lần** nhóm nguy cơ thấp (**6.53%**).
 3. **Thiết kế can thiệp chuyển tiếp (PRD):** Đề xuất quy trình chăm sóc chuyển tiếp 48 giờ (Teach-back rà soát thuốc tại giường + Cuộc gọi chuyên môn trong 48h đầu tại nhà).
-4. **Kế hoạch thử nghiệm A/B:** Thiết kế thử nghiệm lâm sàng đối chứng ngẫu nhiên với cỡ mẫu 1,458 bệnh nhân để kiểm chứng hiệu quả can thiệp trên thực tế.
+4. **Kế hoạch thử nghiệm A/B:** Thiết kế thử nghiệm lâm sàng đối chứng ngẫu nhiên với cỡ mẫu phụ thuộc mức giảm mục tiêu — ví dụ ~1,392 bệnh nhân (tổng 2 nhóm, gồm dự phòng mất dấu 5%) cho mức giảm tuyệt đối 6 điểm %; chi tiết tại `outputs/tables/ab_sample_size_by_effect.csv`.
 
 ---
 
@@ -113,7 +113,7 @@ Phân tích chi phí-lợi ích cần dữ liệu viện phí nội bộ, nằm 
 *(Chỉ sử dụng các số liệu thực tế đo lường được từ dữ liệu và mô hình)*
 
 * **Problem:** Tỷ lệ tái nhập viện 30 ngày ở bệnh nhân đái tháo đường đạt 11.39% trên 99,343 đợt điều trị nội trú; bệnh viện thiếu công cụ phân tầng rủi ro tự động dẫn đến việc phân bổ nguồn lực chăm sóc sau xuất viện bị dàn trải và bỏ sót ca bệnh phức tạp.
-* **Solution:** Xây dựng mô hình phân tầng rủi ro máy học (Group-split theo bệnh nhân chống rò rỉ; AUC = 0.667 dùng để xếp hạng ưu tiên danh sách chăm sóc) và thiết kế quy trình can thiệp chuyển tiếp 48 giờ (PRD) kết hợp kế hoạch thử nghiệm lâm sàng đối chứng A/B Testing ($N=1,458$).
+* **Solution:** Xây dựng mô hình phân tầng rủi ro máy học (Group-split theo bệnh nhân chống rò rỉ; AUC = 0.667 dùng để xếp hạng ưu tiên danh sách chăm sóc) và thiết kế quy trình can thiệp chuyển tiếp 48 giờ (PRD) kết hợp kế hoạch thử nghiệm lâm sàng đối chứng A/B test với cỡ mẫu theo effect size (vd ~1,392 ở mức giảm 6 điểm %).
 * **Impact:** Phân tầng thành công nhóm 20% bệnh nhân nguy cơ cao nhất với tỷ lệ tái nhập thực tế đạt 21.74% (chênh lệch rủi ro 3.3 lần so với nhóm nguy cơ thấp 6.53%), giúp đội ngũ y tế bao phủ được 38.9% tổng số ca tái nhập toàn viện khi chỉ cần tập trung vào 20% nguồn lực vận hành.
 
 ---

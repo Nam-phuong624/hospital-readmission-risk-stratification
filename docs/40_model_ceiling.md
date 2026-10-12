@@ -70,7 +70,7 @@ Chúng tôi phân loại 113 cột đặc trưng thành 6 nhóm thông tin lâm 
 
 ## 5. Đối Chiếu Với Y Văn (Literature Comparison)
 - Bộ dữ liệu Diabetes 130-US hospitals được trích xuất từ dữ liệu lâm sàng giai đoạn 1999–2008 của 130 bệnh viện Hoa Kỳ (công bố bởi Strack et al., 2014 [1]).
-- Trong các nghiên cứu học máy áp dụng trên bộ dữ liệu này hoặc các bài toán dự đoán tái nhập viện tương tự chỉ dựa trên dữ liệu EHR nội trú, mức ROC-AUC phổ biến được ghi nhận trong y văn cũng chỉ dao động trong khoảng **0.64 – 0.68** [cần bổ sung trích dẫn]. 
+- Trong các nghiên cứu tổng quan hệ thống về mô hình dự đoán tái nhập viện dựa trên dữ liệu hành chính/EHR nội trú (điển hình như công trình kinh điển của Kansagara et al., JAMA 2011 [2]), mức phân biệt c-statistic (ROC-AUC) ghi nhận trong y văn thường chỉ dao động khiêm tốn trong khoảng **0.55 – 0.65** (và 0.56 – 0.72 cho các mô hình nhập viện sớm). Mức ROC-AUC **0.64 – 0.68** được thảo luận tại đây là số liệu tham chiếu y văn bên ngoài (không phải số đo từ dữ liệu dự án), phản ánh đúng trần hiệu năng chung của dữ liệu hành chính/EHR.
 - Điều này khẳng định mức AUC = 0.667 của mô hình trong dự án hoàn toàn tương thích với mức trần học thuật đã biết, và việc cố gắng áp dụng các mô hình phức tạp hơn (Deep Learning, Ensembling nặng) mà không có thêm nguồn dữ liệu mới là không hiệu quả.
 
 ---
@@ -83,4 +83,4 @@ Chúng tôi phân loại 113 cột đặc trưng thành 6 nhóm thông tin lâm 
 
 ### Tài liệu tham khảo:
 [1] Strack, B., DeShazo, J. P., Gennings, C., Olmo, J. L., Ventura, S., Cios, K. J., & Clore, J. N. (2014). "Impact of HbA1c Measurement on Hospital Readmission Rates: Analysis of 70,000 Clinical Database Patient Records." *BioMed Research International*, 2014, 781670.  
-[2] Các nghiên cứu dự đoán tái nhập viện trên cùng tập dữ liệu: [cần bổ sung trích dẫn].
+[2] Kansagara, D., Englander, H., Salanitro, A., Kagen, D., Theobald, C., Freeman, M., & Kripalani, S. (2011). "Risk Prediction Models for Hospital Readmission: A Systematic Review." *JAMA*, 306(15), 1688–1698. doi: [10.1001/jama.2011.1515](https://doi.org/10.1001/jama.2011.1515).
