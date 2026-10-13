@@ -73,6 +73,8 @@ Theo yêu cầu kỹ thuật, chúng tôi đã thử nghiệm bổ sung các k�
 - `CalibratedClassifierCV` tăng nhẹ ROC-AUC lên 0.6690 (+0.0020) nhưng Recall@20% giảm nhẹ còn 38.67%.
 - **Quyết định kỹ thuật:** Giữ nguyên mô hình XGBoost ban đầu đơn giản để tránh nguy cơ overfitting, đảm bảo tính giải thích cao và tuân thủ nguyên tắc Occam's Razor.
 - **Chẩn đoán trần hiệu năng:** Chi tiết phân tích thực nghiệm chứng minh trần hiệu năng do dữ liệu (Learning curve bão hòa ở $N \ge 45,000$ bệnh nhân & Feature ablation chứng minh tín hiệu chủ yếu nằm ở tiền sử nhập viện và hình thức xuất viện) được trình bày tại [docs/40_model_ceiling.md](file:///home/namphuong/Documents/project_vinmec/docs/40_model_ceiling.md).
+- **Giải thích mô hình (SHAP):** Phân tích SHAP toàn cục & cục bộ trên 3 ca lâm sàng điển hình được trình bày tại [docs/60_explainability.md](file:///home/namphuong/Documents/project_vinmec/docs/60_explainability.md).
+- **Kiểm toán công bằng (Fairness Audit):** Đánh giá thiên lệch thuật toán trên các thuộc tính nhạy cảm (giới tính, nhóm tuổi, chủng tộc) được trình bày tại [docs/61_fairness_audit.md](file:///home/namphuong/Documents/project_vinmec/docs/61_fairness_audit.md).
 
 ---
 
@@ -131,7 +133,9 @@ Phân tích chi phí-lợi ích cần dữ liệu viện phí nội bộ, nằm 
 │   ├── 01_eda.py / 01_eda.ipynb       # Làm sạch dữ liệu theo Rules & Phân tích khám phá
 │   ├── 02_causes.py / 02_causes.ipynb # Phân tích nguyên nhân & Hồi quy đa biến Odds Ratios
 │   ├── 03_model.py / 03_model.ipynb   # Mô hình Logistic Regression + XGBoost & Thử nghiệm cải tiến
-│   └── 04_ceiling_analysis.py / .ipynb# Chẩn đoán trần hiệu năng: Learning curve & Feature ablation
+│   ├── 04_ceiling_analysis.py / .ipynb# Chẩn đoán trần hiệu năng: Learning curve & Feature ablation
+│   ├── 05_shap_explain.py / .ipynb    # Giải thích mô hình bằng SHAP (TreeExplainer: Global & Local)
+│   └── 06_fairness.py / .ipynb        # Kiểm toán công bằng & thiên lệch thuật toán (Gender, Age, Race)
 ├── outputs/
 │   ├── risk_scores.csv                # Điểm số rủi ro dự báo & Risk Tiers cho từng bệnh nhân test
 │   ├── figures/                       # Biểu đồ trực quan hóa độ phân giải cao
@@ -146,7 +150,11 @@ Phân tích chi phí-lợi ích cần dữ liệu viện phí nội bộ, nằm 
 │   │   ├── model_calibration_curve.png
 │   │   ├── model_feature_importance.png
 │   │   ├── learning_curve.png
-│   │   └── feature_ablation.png
+│   │   ├── feature_ablation.png
+│   │   ├── shap_bar_importance.png
+│   │   ├── shap_summary_beeswarm.png
+│   │   ├── shap_case_1..3.png
+│   │   └── fairness_recall_by_group.png
 │   └── tables/                        # Bảng số liệu tổng hợp định dạng CSV
 │       ├── eda_summary_overall.csv
 │       ├── eda_readmission_by_age.csv
@@ -160,13 +168,20 @@ Phân tích chi phí-lợi ích cần dữ liệu viện phí nội bộ, nằm 
 │       ├── model_experiments_old_vs_new.csv
 │       ├── ab_sample_size_by_effect.csv
 │       ├── learning_curve_results.csv
-│       └── feature_ablation.csv
+│       ├── feature_ablation.csv
+│       ├── shap_global_importance.csv
+│       ├── shap_local_cases.csv
+│       ├── fairness_by_gender.csv
+│       ├── fairness_by_age.csv
+│       └── fairness_by_race.csv
 └── docs/
     ├── 00_problem_framing.md          # Phase 1: Problem statement, 4 câu hỏi NV, 3 KPI
     ├── 10_root_cause_findings.md      # Phase 3: Báo cáo nguyên nhân gốc rễ & Process gaps
     ├── 20_PRD_intervention.md          # Phase 5: PRD Gói can thiệp chuyển tiếp theo dõi 48h
     ├── 30_ab_test_plan.md             # Phase 6: Kế hoạch thử nghiệm A/B Testing & Bảng cỡ mẫu
-    └── 40_model_ceiling.md            # Chẩn đoán trần hiệu năng mô hình (Learning curve & Ablation)
+    ├── 40_model_ceiling.md            # Chẩn đoán trần hiệu năng mô hình (Learning curve & Ablation)
+    ├── 60_explainability.md           # Báo cáo giải thích mô hình bằng SHAP (Global & Local)
+    └── 61_fairness_audit.md           # Báo cáo kiểm toán công bằng & thiên lệch thuật toán
 ```
 
 ---
